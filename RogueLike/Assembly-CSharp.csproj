@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{B2B58FB2-4462-6B0C-A872-40DD957E5FE0}</ProjectGuid>
+    <ProjectGuid>{5FB85AE3-D086-CBEB-FEEA-B363B0289BC7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -45,14 +45,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Completed\Scripts\BoardManager.cs" />
-     <Compile Include="Assets\Completed\Scripts\Enemy.cs" />
-     <Compile Include="Assets\Completed\Scripts\GameManager.cs" />
-     <Compile Include="Assets\Completed\Scripts\Loader.cs" />
-     <Compile Include="Assets\Completed\Scripts\MovingObject.cs" />
-     <Compile Include="Assets\Completed\Scripts\Player.cs" />
-     <Compile Include="Assets\Completed\Scripts\SoundManager.cs" />
-     <Compile Include="Assets\Completed\Scripts\Wall.cs" />
+     <Compile Include="Assets\Scripts\BoardManager.cs" />
+     <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\TutorialInfo\Completed\Scripts\BoardManager.cs" />
+     <Compile Include="Assets\TutorialInfo\Completed\Scripts\Enemy.cs" />
+     <Compile Include="Assets\TutorialInfo\Completed\Scripts\GameManager.cs" />
+     <Compile Include="Assets\TutorialInfo\Completed\Scripts\Loader.cs" />
+     <Compile Include="Assets\TutorialInfo\Completed\Scripts\MovingObject.cs" />
+     <Compile Include="Assets\TutorialInfo\Completed\Scripts\Player.cs" />
+     <Compile Include="Assets\TutorialInfo\Completed\Scripts\SoundManager.cs" />
+     <Compile Include="Assets\TutorialInfo\Completed\Scripts\Wall.cs" />
      <Compile Include="Assets\TutorialInfo\Scripts\TutorialInfo.cs" />
      <None Include="Assets\TutorialInfo\Fonts\LICENSE.txt" />
      <None Include="Assets\Fonts\OFL.txt" />

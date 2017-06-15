@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player : MovingObject {
 
@@ -12,6 +13,8 @@ public class Player : MovingObject {
     public int pointsPerFood = 10;
     public int pointsPerSoda = 20;
     public float restartLevelDelay = 1f;
+    public Text foodText;
+
 
     private Animator animator;
     private int food;
@@ -22,6 +25,7 @@ public class Player : MovingObject {
 	protected override void Start () {
         animator = GetComponent<Animator>();
         food = GameManager.instance.playerFoodPoints;
+        foodText.text = "Food " + food;
         base.Start();
 	}
 
@@ -67,11 +71,13 @@ public class Player : MovingObject {
         if (collision.tag == "Food")
         {
             food += pointsPerFood;
+            foodText.text = "+" + pointsPerSoda + " Food: " + food;
             collision.gameObject.SetActive(false);
         }
         if (collision.tag == "Soda")
         {
             food += pointsPerSoda;
+            foodText.text = "+" + pointsPerSoda + " Food: " + food;
             collision.gameObject.SetActive(false);
         }
     }
@@ -82,11 +88,14 @@ public class Player : MovingObject {
     protected override void AttemptMove<T>(int xDir, int yDir)
     {
         food--;
+        foodText.text = "Food " + food;
+
         base.AttemptMove<T>(xDir, yDir);
         RaycastHit2D hit;
 
         CheckIfGameOver();
 
+        //Aquí termina el turno del player.
         GameManager.instance.playersTurn = false;
     }
 
@@ -101,6 +110,7 @@ public class Player : MovingObject {
 
     //Método sobreescrito de la herencia para cuando no puede moverse por encontrarse
     //con una "pared" (asumiendo que el metodo abstracto se encontró con una pared).
+    //y ejecuta una animación de corte en el player.
     protected override void OnCantMove<T>(T component)
     {
         Wall hitWall = component as Wall;
@@ -114,11 +124,12 @@ public class Player : MovingObject {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    //pérdida de comida
+    //pérdida de comida y chequea si perdió 
     public void LoseFood (int loss)
     {
         animator.SetTrigger("playerHit");
         food -= loss;
+        foodText.text = "-" + loss + " Food: " + food;
         CheckIfGameOver();
     }
 
